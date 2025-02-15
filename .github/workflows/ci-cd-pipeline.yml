@@ -1,0 +1,21 @@
+name: Deply Angular to server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: contruir la aplicacion
+        run: echo "Construyendo la aplicacion..."
+
+      - name: Desplegar (solo si todo fue exitoso)
+        if: success()
+        run: echo "Desplegando la aplicacion..."
